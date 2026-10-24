@@ -1,0 +1,7 @@
+test/out/
+lens/browzie-lens.exe
+host/browzie-host.bat
+host/com.browzie.bridge.json
+node_modules/
+lens/*.old.exe*
+lens/*.new.exe

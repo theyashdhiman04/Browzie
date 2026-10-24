@@ -1,0 +1,5 @@
+<!doctype html><meta charset=utf-8><title>Frames</title><h1>Frames</h1>
+<iframe id=same src="frame.html?same" style="width:420px;height:120px"></iframe>
+<iframe id=cross style="width:420px;height:120px"></iframe>
+<iframe id=nest src="nested.html" style="width:420px;height:150px"></iframe>
+<script>document.getElementById('cross').src = location.href.replace('127.0.0.1', 'localhost').replace('frames.html', 'frame.html?cross');</script>

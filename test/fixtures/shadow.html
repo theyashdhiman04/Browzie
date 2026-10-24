@@ -1,0 +1,2 @@
+<!doctype html><meta charset=utf-8><title>Shadow</title><h1>Closed shadow root</h1><x-card></x-card>
+<script>customElements.define('x-card', class extends HTMLElement { constructor() { super(); const r = this.attachShadow({ mode: 'closed' }); r.innerHTML = '<p>Inside a closed root</p><button>Secret button</button>'; r.querySelector('button').onclick = (e) => { e.target.textContent = 'Secret clicked'; }; } });</script>

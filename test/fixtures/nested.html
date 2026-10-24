@@ -1,0 +1,3 @@
+<!doctype html><meta charset=utf-8><body style="font:14px sans-serif"><p>Outer frame</p>
+<iframe id=inner style="width:380px;height:70px"></iframe>
+<script>document.getElementById('inner').src = location.href.replace('127.0.0.1', 'localhost').replace('nested.html', 'frame.html?nested');</script>

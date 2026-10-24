@@ -1,0 +1,4 @@
+<!doctype html><meta charset=utf-8><title>Moved frame</title><h1>Moved frame</h1>
+<!-- a cross-origin frame whose src redirects: its URL no longer matches the src, as YouTube's picture chooser -->
+<iframe id=moved style="width:420px;height:120px"></iframe>
+<script>document.getElementById('moved').src = location.href.replace('127.0.0.1', 'localhost').replace(/moved\.html.*$/, 'go?to=' + encodeURIComponent('/frame.html?moved'));</script>

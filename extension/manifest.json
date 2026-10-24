@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Browzie for Claude Code",
+  "short_name": "Browzie",
+  "version": "0.1.0",
+  "description": "Lets Claude Code use this browser with a visible, human-paced virtual cursor. Bot checks are always handed to you.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArcbILGAhGQZ33dxn7mNSyAYwic47L/wSfqNCN8XpMl5JRyo3Mq7e6k0gkYWcUl5PWk5AbpqLvrE6+9ARcNxxexJoraA3S8ZDwsTeDoqzzBWcrqFWYrcfbSmj6Co3mWk7sg7hWkuQwGI9lUyYvc6YOGp705k1xR1oxqeXsGtkmM848Eif8pBUtpXe3/hgNSxShysPmeXZS979hd+Kz3uZ7N0lMyibr9dJajhdotoqqrri9DkRq10CRhzKZ9IDKqq0526gpKlA3XaxknZ9tlgLvID7Ka/I7824JRQQ19GltVV7tiRuNTSfIAeko7qCNsajOBfqdBfyUZhj2nEU1lKvIQIDAQAB",
+  "minimum_chrome_version": "120",
+  "background": {
+    "service_worker": "sw.js",
+    "type": "module"
+  },
+  "permissions": [
+    "debugger",
+    "scripting",
+    "tabs",
+    "tabGroups",
+    "nativeMessaging",
+    "storage",
+    "notifications",
+    "webNavigation",
+    "webRequest",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_title": "Browzie: click to pause or resume Claude. During a handoff, click when you are done.",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

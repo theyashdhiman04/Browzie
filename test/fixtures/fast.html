@@ -1,0 +1,10 @@
+<!doctype html><meta charset=utf-8><title>Fast</title>
+<label>Caption <textarea id="cap" rows="6" cols="60"></textarea></label>
+<p><button id="next" disabled>Next</button> <button id="upload" onclick="setTimeout(() => (document.getElementById('next').disabled = false), 700)">Finish upload</button></p>
+<p><button onclick="setTimeout(() => { const b = document.createElement('button'); b.textContent = 'Late button'; b.onclick = () => (window.__late = 1); document.body.append(b); }, 800)">Show late</button></p>
+<div role="listbox" aria-label="Games">
+  <div role="option" tabindex="0" onclick="window.__picked = this.textContent">Battlegrounds Mobile India 2021</div>
+  <div role="option" tabindex="0" onclick="window.__picked = this.textContent">Valorant</div>
+</div>
+<!-- re-renders the list the way a filtering picker does: same elements, new text -->
+<button onclick="const o = document.querySelectorAll('[role=option]'); o[0].textContent = 'Free Fire'; o[1].textContent = 'Battlegrounds Mobile India 2021';">Filter</button>

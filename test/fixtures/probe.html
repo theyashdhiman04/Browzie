@@ -1,0 +1,22 @@
+<!doctype html><meta charset=utf-8><title>Browzie probe</title>
+<style>body{margin:0;font:16px sans-serif;height:2400px} #b{position:absolute;left:520px;top:300px;width:150px;height:44px} #t{position:absolute;left:80px;top:420px;width:300px;font-size:16px}</style>
+<button id=b onclick="window.__probe.clicks++">Target</button>
+<input id=t aria-label="Type here" placeholder="Type here">
+<script>
+// What a bot-detection script can observe, recorded for the footprint test.
+window.__probe = { events: [], added: [], attrs: [], cdp: false, webdriver: navigator.webdriver, extProbe: null, resizes: 0, clicks: 0 };
+const P = window.__probe;
+for (const t of ['pointermove','pointerdown','pointerup','mousemove','mousedown','mouseup','click','keydown','keyup','keypress','input','wheel']) {
+  addEventListener(t, (e) => P.events.push({ t, wall: Date.now(), tr: e.isTrusted, ts: e.timeStamp, cx: e.clientX, cy: e.clientY, sx: e.screenX, sy: e.screenY, mx: e.movementX, my: e.movementY, pr: e.pressure, pt: e.pointerType, btns: e.buttons, det: e.detail, key: e.key, code: e.code, dy: e.deltaY, dm: e.deltaMode, hf: document.hasFocus() }), true);
+}
+addEventListener('resize', () => { P.resizes++; (P.rlog = P.rlog || []).push([Math.round(performance.now()), innerWidth, innerHeight]); });
+// anything added to the DOM or any attribute changed by someone other than this page
+// (observed from load on; this page itself never changes its DOM after that)
+addEventListener('load', () => new MutationObserver((l) => { for (const m of l) { for (const n of m.addedNodes) P.added.push(n.nodeName); if (m.type === 'attributes') P.attrs.push(m.target.nodeName + '@' + m.attributeName); } })
+  .observe(document, { childList: true, subtree: true, attributes: true }));
+// the classic DevTools-protocol tell: with Runtime.enable on, console.debug serialises its argument
+const err = new Error(); Object.defineProperty(err, 'stack', { get() { P.cdp = true; return ''; } });
+setInterval(() => console.debug(err), 100);
+// can the page reach the extension's files? It must not (no web_accessible_resources).
+fetch('chrome-extension://jnpofggaaghogojkmhfmmlmgbdhlecae/manifest.json').then(() => P.extProbe = 'reachable', () => P.extProbe = 'blocked');
+</script>

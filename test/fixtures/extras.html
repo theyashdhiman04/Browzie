@@ -1,0 +1,16 @@
+<!doctype html><meta charset=utf-8><title>Extras</title>
+<style>body{font:16px system-ui;margin:24px} button{margin:4px} p{margin:10px 0}</style>
+<p id=status>Not signed in</p>
+<p><button id=signin>Sign in with Example</button></p>
+<p><button class=likes>Unhide like count</button> <button class=likes id=hide>Hide like count</button></p>
+<p><button class=next>Ne&#8203;xt step</button> <button class=next>Nextdoor</button></p>
+<p><input type=file id=file multiple hidden><button id=pick>Select files</button> <span id=files>No files</span></p>
+<p><label>Caption <textarea id=cap rows=4 cols=70></textarea></label></p>
+<p id=emoji>Final standings 👇🔥 dekho</p>
+<script>
+window.clicks = [];
+document.getElementById('signin').onclick = () => window.open('signin.html', 'signin', 'popup,width=480,height=600');
+for (const b of document.querySelectorAll('button.likes, button.next')) b.onclick = () => clicks.push(b.textContent);
+document.getElementById('pick').onclick = () => document.getElementById('file').click();
+document.getElementById('file').onchange = (e) => (document.getElementById('files').textContent = [...e.target.files].map((f) => f.name).join(', '));
+</script>

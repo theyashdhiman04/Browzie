@@ -1,0 +1,18 @@
+<!doctype html><meta charset=utf-8><title>Log in</title>
+<style>body{font:16px system-ui;margin:24px}</style>
+<h1>Log in to Example</h1>
+<form id=f>
+  <p><label>Username <input name=user autocomplete=username></label></p>
+  <p><label>Password <input name=pass type=password autocomplete=current-password></label></p>
+  <p><button>Sign in</button></p>
+</form>
+<p id=out></p>
+<script>
+window.__sent = 0;
+document.getElementById('f').onsubmit = (e) => {
+  e.preventDefault();
+  window.__sent++;
+  document.getElementById('f').remove();
+  document.getElementById('out').textContent = 'Welcome back';
+};
+</script>

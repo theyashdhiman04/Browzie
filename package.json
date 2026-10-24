@@ -1,0 +1,46 @@
+{
+  "name": "browzie",
+  "version": "0.1.0",
+  "description": "Let Claude Code drive your everyday Chrome with a visible virtual cursor and real, trusted input. An MV3 extension, a native host and a zero-dependency MCP server. No API keys, no debugging port, CAPTCHAs always go to you.",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "claude-code",
+    "chrome-extension",
+    "browser-automation",
+    "virtual-cursor",
+    "native-messaging",
+    "manifest-v3"
+  ],
+  "homepage": "https://github.com/theyashdhiman04/Browzie#readme",
+  "bugs": {
+    "url": "https://github.com/theyashdhiman04/Browzie/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theyashdhiman04/Browzie.git"
+  },
+  "license": "MIT",
+  "author": "Yash Dhiman",
+  "type": "module",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "setup": "node scripts/install.js",
+    "check": "node scripts/install.js --check",
+    "test": "node --test --test-concurrency=1 test/human.test.js test/diff.test.js test/reconnect.test.js test/e2e.test.js test/fast.test.js",
+    "test:unit": "node --test test/human.test.js",
+    "footprint": "node test/footprint.js",
+    "bench": "node test/bench.js",
+    "lens-check": "node test/lens-check.js",
+    "takeover-check": "node test/takeover-check.js",
+    "desktop-check": "node test/desktop-check.js",
+    "live": "node test/live.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "os": [
+    "win32"
+  ]
+}

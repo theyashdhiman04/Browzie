@@ -1,0 +1,16 @@
+<!doctype html><meta charset=utf-8><title>Signup</title>
+<style>label{display:block;margin:10px 0}</style>
+<h1>Signup</h1>
+<form id=f onsubmit="event.preventDefault(); document.getElementById('out').textContent = 'Submitted ' + JSON.stringify(Object.fromEntries(new FormData(this)))">
+<label>Full name <input name=name></label>
+<label>Email <input name=email type=email placeholder="you@example.com"></label>
+<label>Country <select name=country><option>Choose</option><option>India</option><option>United States</option><option>United Kingdom</option></select></label>
+<label><input type=checkbox name=agree> I agree to the terms</label>
+<fieldset><legend>Plan</legend><label><input type=radio name=plan value=free checked> Free</label><label><input type=radio name=plan value=pro> Pro</label></fieldset>
+<label>Start date <input type=date name=start></label>
+<label>Volume <input type=range name=vol min=0 max=10 value=3></label>
+<label>Bio <textarea name=bio></textarea></label>
+<label>Password <input type=password name=pw></label>
+<button>Create account</button>
+</form>
+<p id=out></p>
